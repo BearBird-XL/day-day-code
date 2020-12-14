@@ -71,18 +71,27 @@ public class Day1214 {
          * @return true false
          */
         private boolean check(String str, String s) {
-            Map<Character, Integer> map = new HashMap<>();
+            Map<Character, Integer> mapStr = new HashMap<>();
+            Map<Character, Integer> mapS = new HashMap<>();
             // 把str的字符存入到hashMap中
             for (int i = 0; i < str.length(); i++) {
-                if (!map.containsKey(str.charAt(i))) {
-                    map.put(str.charAt(i), 1);
+                if (!mapStr.containsKey(str.charAt(i))) {
+                    mapStr.put(str.charAt(i), 1);
                     continue;
                 }
                 // 存在此字符 + 1
-                map.put(str.charAt(i), map.get(str.charAt(i)) + 1);
+                mapStr.put(str.charAt(i), mapStr.get(str.charAt(i)) + 1);
             }
             for (int i = 0; i < s.length(); i++) {
-                if (map.get(s.charAt(i)) == null) {
+                if (!mapS.containsKey(s.charAt(i))) {
+                    mapS.put(s.charAt(i), 1);
+                    continue;
+                }
+                // 存在此字符 + 1
+                mapS.put(s.charAt(i), mapS.get(s.charAt(i)) + 1);
+            }
+            for (Character c: mapS.keySet()) {
+                if (mapS.get(c) == null || mapStr.get(c) == null || mapS.get(c) != mapStr.get(c)) {
                     return false;
                 }
             }
