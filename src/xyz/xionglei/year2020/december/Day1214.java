@@ -74,7 +74,12 @@ public class Day1214 {
             Map<Character, Integer> map = new HashMap<>();
             // 把str的字符存入到hashMap中
             for (int i = 0; i < str.length(); i++) {
-                map.put(str.charAt(i), i);
+                if (!map.containsKey(str.charAt(i))) {
+                    map.put(str.charAt(i), 1);
+                    continue;
+                }
+                // 存在此字符 + 1
+                map.put(str.charAt(i), map.get(str.charAt(i)) + 1);
             }
             for (int i = 0; i < s.length(); i++) {
                 if (map.get(s.charAt(i)) == null) {
