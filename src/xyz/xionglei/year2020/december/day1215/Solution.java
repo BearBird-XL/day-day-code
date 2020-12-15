@@ -24,7 +24,7 @@ public class Solution {
         for (int i = 1; i < nStr.length(); i++) {
             // 出现左 > 右 返回
             if (nStr.charAt(i - 1) > nStr.charAt(i)) {
-                StringBuffer sb = new StringBuffer();
+                StringBuilder sb = new StringBuilder();
                 sb.append(nStr, 0, index).append(nStr.charAt(index) - '1');
                 for (int j = 0; j < nStr.length() - index - 1; j++) {
                     sb.append(9);
