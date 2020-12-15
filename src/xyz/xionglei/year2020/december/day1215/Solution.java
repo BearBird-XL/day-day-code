@@ -25,7 +25,7 @@ public class Solution {
             // 出现左 > 右 返回
             if (nStr.charAt(i - 1) > nStr.charAt(i)) {
                 StringBuffer sb = new StringBuffer();
-                sb.append(nStr.substring(0, index)).append(nStr.charAt(index) - '1');
+                sb.append(nStr, 0, index).append(nStr.charAt(index) - '1');
                 for (int j = 0; j < nStr.length() - index - 1; j++) {
                     sb.append(9);
                 }
