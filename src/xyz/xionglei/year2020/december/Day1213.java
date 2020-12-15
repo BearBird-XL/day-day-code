@@ -18,6 +18,7 @@ public class Day1213 {
 
     static class Solution {
 
+        // my answer
         public String getBinaryAndHexadecimal(String number) {
             StringBuilder resPrefix = new StringBuilder();
             StringBuilder resSuffix = new StringBuilder();
