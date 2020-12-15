@@ -1,5 +1,6 @@
 package xyz.xionglei.year2020.december.day1215;
 
+
 /**
  * leetcode:738 单调递增的数字
  * 给定一个非负整数 N，找出小于或等于 N 的最大的整数，同时这个整数需要满足其各个位数上的数字是单调递增。
@@ -39,5 +40,26 @@ public class Solution {
             }
         }
         return N;
+    }
+
+    public int monotoneIncreasingDigitsReferenceAnswer(int N) {
+        char[] arr = Integer.toString(N).toCharArray();
+        int i = 1;
+        // 从最高位开始找第一次递减的时候
+        while (i < arr.length && arr[i - 1] <= arr[i]) {
+            i++;
+        }
+        // 当找到时i 一定小于arr.length
+        if (i < arr.length) {
+            // 找到分隔点
+            while (i > 0 && arr[i - 1] > arr[i]) {
+                arr[i - 1] -= 1;
+                i--;
+            }
+            for (i += 1; i < arr.length; ++i) {
+                arr[i] = '9';
+            }
+        }
+        return Integer.parseInt(new String(arr));
     }
 }
