@@ -39,5 +39,6 @@ hs_err_pid*
 /target
 /target/
 **/target/
+/out
 
 .DS_Store
