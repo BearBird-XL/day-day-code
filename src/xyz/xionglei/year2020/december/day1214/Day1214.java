@@ -1,10 +1,5 @@
 package xyz.xionglei.year2020.december.day1214;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * leetcode:49 字母异位词分组
