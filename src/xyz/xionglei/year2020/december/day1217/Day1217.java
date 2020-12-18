@@ -9,6 +9,7 @@ public class Day1217 {
         System.out.println(e1 == e3);
 
         System.out.printf("%d", new Solution().maxProfit(new int[]{1, 3, 2, 8, 4, 9}, 2));
+        System.out.println(null==E.A);
     }
 
     enum E {
