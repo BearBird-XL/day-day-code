@@ -14,7 +14,7 @@ public class TreeUtils {
         int index = 1;
         while (!(Math.pow(2, i) > arr.length)) {
             for (int j = 0; j < Math.pow(2, i) && index < arr.length; j++) {
-//                TreeNode node = new TreeNode(arr[index++]);
+//                TreeUtils node = new TreeUtils(arr[index++]);
                 TreeNode node = (arr[index] == null ? null : new TreeNode(arr[index]));
                 deque.addLast(node);
                 if ((j & 1) == 0) {

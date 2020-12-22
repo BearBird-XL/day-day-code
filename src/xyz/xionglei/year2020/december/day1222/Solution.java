@@ -9,14 +9,15 @@ import java.util.Queue;
 
 /**
  * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode(int x) { val = x; }
+ * public class TreeUtils {
+ * int val;
+ * TreeUtils left;
+ * TreeUtils right;
+ * TreeUtils(int x) { val = x; }
  * }
  */
 class Solution {
+    // BFS time: O(n) space: o(n)
     public List<List<Integer>> zigzagLevelOrderReference(TreeNode root) {
         List<List<Integer>> res = new LinkedList<>();
         if (root == null) return res;
@@ -55,5 +56,38 @@ class Solution {
         }
 
         return res;
+    }
+
+    public List<List<Integer>> zigzagLevelOrderReference2(TreeNode root) {
+        List<List<Integer>> ans = new LinkedList<List<Integer>>();
+        if (root == null) return ans;
+
+        Queue<TreeNode> nodeQueue = new LinkedList<TreeNode>();
+        nodeQueue.offer(root);
+        boolean isOrderLeft = true;
+
+        while (!nodeQueue.isEmpty()) {
+            Deque<Integer> levelList = new LinkedList<Integer>();
+            // 和上个方法相比这个方法用size来获取一行데分割，是标志的BFS写法
+            int size = nodeQueue.size();
+            for (int i = 0; i < size; ++i) {
+                TreeNode curNode = nodeQueue.poll();
+                if (isOrderLeft) {
+                    levelList.offerLast(curNode.val);
+                } else {
+                    levelList.offerFirst(curNode.val);
+                }
+                if (curNode.left != null) {
+                    nodeQueue.offer(curNode.left);
+                }
+                if (curNode.right != null) {
+                    nodeQueue.offer(curNode.right);
+                }
+            }
+            ans.add(new LinkedList<>(levelList));
+            isOrderLeft = !isOrderLeft;
+        }
+
+        return ans;
     }
 }
