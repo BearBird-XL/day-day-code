@@ -5,10 +5,10 @@
  *     this.left = this.right = null;
  * }
  */
-import {TreeNode} from "../../../utils/TreeUtils";
+import {TreeNode, createBinaryTree} from "../../../utils/TreeUtils";
 
 /**
- * @param {TreeUtils} root
+ * @param {TreeNode} root
  * @return {number[][]}
  */
 const zigzagLevelOrder = function(root) {
@@ -39,4 +39,7 @@ const zigzagLevelOrder = function(root) {
     }
     return res;
 };
+
+let arr = [3,9,20,null,null,15,7];
+console.log(zigzagLevelOrder(createBinaryTree(arr)));
 
