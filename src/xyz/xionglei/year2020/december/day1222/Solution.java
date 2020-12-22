@@ -58,6 +58,7 @@ class Solution {
         return res;
     }
 
+    // BFS 标准写法
     public List<List<Integer>> zigzagLevelOrderReference2(TreeNode root) {
         List<List<Integer>> ans = new LinkedList<List<Integer>>();
         if (root == null) return ans;
