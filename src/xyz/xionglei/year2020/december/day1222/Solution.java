@@ -2,6 +2,7 @@ package xyz.xionglei.year2020.december.day1222;
 
 import xyz.xionglei.utils.TreeNode;
 
+import java.util.ArrayList;
 import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
@@ -17,8 +18,39 @@ import java.util.Queue;
  * }
  */
 class Solution {
+
+    // DFS time o(n)    space: O(n)
+    public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
+        List<List<Integer>> res = new ArrayList<>();
+        travelDFS(root, res, 0);
+        return res;
+    }
+
+    private void travelDFS(TreeNode cur, List<List<Integer>> res, int level) {
+        if (cur == null)
+            return;
+        //如果res.size() <= level说明下一层的集合还没创建，所以要先创建下一层的集合
+        if (res.size() <= level) {
+            List<Integer> newLevel = new LinkedList<>();
+            res.add(newLevel);
+        }
+        //遍历到第几层我们就操作第几层的数据
+        List<Integer> list = res.get(level);
+        //这里默认根节点是第0层，偶数层相当于从左往右遍历，
+        // 所以要添加到集合的末尾，如果是奇数层相当于从右往左遍历，
+        // 要把数据添加到集合的开头
+        if (level % 2 == 0)
+            list.add(cur.val);
+        else
+            list.add(0, cur.val);
+        //分别遍历左右两个子节点，到下一层了，所以层数要加1
+        travelDFS(cur.left, res, level + 1);
+        travelDFS(cur.right, res, level + 1);
+    }
+
+
     // BFS time: O(n) space: o(n)
-    public List<List<Integer>> zigzagLevelOrderReference(TreeNode root) {
+    public List<List<Integer>> zigzagLevelOrderReferenceBFS(TreeNode root) {
         List<List<Integer>> res = new LinkedList<>();
         if (root == null) return res;
         // 每一层的顺序
@@ -59,7 +91,7 @@ class Solution {
     }
 
     // BFS 标准写法
-    public List<List<Integer>> zigzagLevelOrderReference2(TreeNode root) {
+    public List<List<Integer>> zigzagLevelOrderReferenceBFS2(TreeNode root) {
         List<List<Integer>> ans = new LinkedList<List<Integer>>();
         if (root == null) return ans;
 
