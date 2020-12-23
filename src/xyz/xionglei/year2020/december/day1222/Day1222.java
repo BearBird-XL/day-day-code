@@ -29,6 +29,6 @@ public class Day1222 {
         TreeNode root = TreeUtils.createBinaryTreeFormArray(new Integer[]{1, 2, 3, 4, null, null, 5});
         TreeUtils.printBFS(root);
 
-        System.out.println(new Solution().zigzagLevelOrderReference(root));
+        System.out.println(new Solution().zigzagLevelOrderReferenceBFS(root));
     }
 }
