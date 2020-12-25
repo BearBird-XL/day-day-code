@@ -1,4 +1,4 @@
-package xyz.xionglei.year2020.december.day2020;
+package xyz.xionglei.year2020.december.day1223;
 
 /**
  *
@@ -10,7 +10,7 @@ package xyz.xionglei.year2020.december.day2020;
  * s = "loveleetcode"
  * 返回 2
  */
-public class Day2020 {
+public class Day1223 {
 
     public static void main(String[] args) {
         String str = "asdafaf";
