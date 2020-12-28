@@ -25,6 +25,7 @@ package xyz.xionglei.year2020.december.day1225;
  */
 public class Day1225 {
 
+
     public static void main(String[] args) {
         int[] g = {1, 2};
         int[] s = {1, 2, 3};
