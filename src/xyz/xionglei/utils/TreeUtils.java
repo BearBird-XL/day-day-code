@@ -5,6 +5,12 @@ import java.util.LinkedList;
 
 public class TreeUtils {
 
+    /**
+     * 以层次遍历的顺序生成一颗二叉树.
+     *
+     * @param arr 二叉树的值
+     * @return 二叉树根节点
+     */
     public static TreeNode createBinaryTreeFormArray(Integer[] arr) {
         if (arr == null || arr.length == 0) return null;
         Deque<TreeNode> deque = new LinkedList<>();
@@ -29,6 +35,11 @@ public class TreeUtils {
         return root;
     }
 
+    /**
+     * 宽度优点遍历二叉树，即层次遍历
+     *
+     * @param root 二叉树的根节点
+     */
     public static void printBFS(TreeNode root) {
 
         if (root == null) return;
@@ -46,4 +57,15 @@ public class TreeUtils {
         }
         System.out.println();
     }
+
+    /**
+     * 获取一棵树的层数
+     *
+     * @param root 根节点
+     * @return 层数
+     */
+    public static int getTreeDepth(TreeNode root) {
+        return root == null ? 0 : (1 + Math.max(getTreeDepth(root.left), getTreeDepth(root.right)));
+    }
+
 }
