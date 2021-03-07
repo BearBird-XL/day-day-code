@@ -32,5 +32,12 @@ public class MyTreeMapTest {
         for (MyTreeMap.Entry<Integer, String> entry : map.entrySet()) {
             System.out.println(entry.getKey() + ": " + entry.getValue());
         }
+
+        System.out.println("=============Custom type============");
+        MyTreeMap<People, String> treeMap = new MyTreeMap<>();
+        treeMap.put(new People("IU", 1), "MyLove");
+        treeMap.put(new People("Yoona", 2), "MyLove");
+        treeMap.put(new People("Taeyaon", 3), "MyLove");
+        treeMap.show();
     }
 }
